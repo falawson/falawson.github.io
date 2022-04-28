@@ -76,6 +76,7 @@ function checkCookie() {
       user = prompt("Please enter your name:", "");
       if (user != "" && user != null) {
         setCookie("username", user, 365);
+        alert("new cookie added: " + getCookie("username"));
       }
     }
 }
