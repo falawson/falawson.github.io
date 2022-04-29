@@ -35,6 +35,7 @@ function openModal(id){
 			setCookie("spinCost", SPIN_COST);
 			spinCookie = getCookie("spinCost");
 		}
+		document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")";
 		
 		if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 			test.setAttribute('onclick',"closeModal('shopModal')");
