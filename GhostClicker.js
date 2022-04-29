@@ -59,8 +59,8 @@ function closeModal(id){
 				
 				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - parseInt(spinCookie);
 				spinCookie = parseInt(spinCookie) + spinCookie/2;
-				console.log("buying sprite updated spincookie: "+spinCookie);
 				setCookie("spinCost", spinCookie);
+				setCookie("balance", document.getElementById("cashBalance").innerHTML);
 				
 				
 				document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")";
@@ -144,7 +144,6 @@ class Graveyard {
 		
 		this.balance = document.getElementById("cashBalance");
 
-		//setCookie("balance", this.balance.innerHTML);
 		let balanceCookie = getCookie("balance");
 		console.log("Balance Cookie: "+balanceCookie)
 		if(balanceCookie !== ""){
