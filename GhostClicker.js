@@ -9,6 +9,7 @@
 const GHOST_ARR	= ["Spook Ghost", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, utterly unremarkable ghost that could ever grace your cemetery. He likes long walks on the beach and haunting under the moonlight.", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 
+
 let SPIN_COST = 50;
 
 const SQUARE_SIZE = 8; 
@@ -113,22 +114,20 @@ class Graveyard {
 		let y = this;
 		this.ghostArr = [];
 		this.graveArr = [];
-		
-		this.yard = document.getElementById("Graveyard");
-		this.yard.setAttribute("roll", "0"); //roll = true initially
 
 		for(let i = 0; i < GHOST_ARR.length; i++){
 			let ghostCookie = getCookie("ghostArr" + i);
 			let graveCookie = getCookie("graveArr" + i);
 			if(ghostCookie !== ""){
-				console.log("not parsed cookie: " + ghostCookie);
-				console.log("parsed cookie: " + JSON.parse(ghostCookie));
+				this.ghostArr[i] = JSON.parse(ghostCookie);
 			}
 			if(graveCookie !== ""){
-				console.log("not parsed cookie: " + graveCookie);
-				console.log("parsed cookie: " + JSON.parse(graveCookie));
+				this.graveArr[i] = JSON.parse(graveCookie);
 			}
 		}
+		
+		this.yard = document.getElementById("Graveyard");
+		this.yard.setAttribute("roll", "0"); //roll = true initially
 		
 		this.canvas = document.getElementById(id);
 		
