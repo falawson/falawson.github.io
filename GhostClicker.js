@@ -30,12 +30,13 @@ function openModal(id){
 	
 	if (id === "shopModal"){
 		let test = document.getElementById("closeShop");
-		let spinCookie = getCookie("spinCost");
-		if(spinCookie === ""){
+		let spinCookie = getCookie("spinCost"); //sets var spinCookie to value of the "spinCost" cookie
+		if(spinCookie === ""){ //if "spinCost" cookie does not exist, sets var spinCookie to default SPIN_COST
 			setCookie("spinCost", SPIN_COST);
 			spinCookie = getCookie("spinCost");
 		}
-		document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")";
+
+		document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")"; //updates initial shop modal text to spinCookie amount
 		
 		if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 			test.setAttribute('onclick',"closeModal('shopModal')");
@@ -59,8 +60,8 @@ function closeModal(id){
 				
 				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - parseInt(spinCookie);
 				spinCookie = parseInt(spinCookie) + spinCookie/2;
-				setCookie("spinCost", spinCookie);
-				setCookie("balance", document.getElementById("cashBalance").innerHTML);
+				setCookie("spinCost", spinCookie); //updates "spinCost" cookie
+				setCookie("balance", document.getElementById("cashBalance").innerHTML); //updates "balance" cookie
 				
 				
 				document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")";
@@ -129,10 +130,10 @@ class Graveyard {
 		for(let i = 0; i < GHOST_ARR.length; i++){
 			let ghostCookie = getCookie("ghostArr" + i);
 			let graveCookie = getCookie("graveArr" + i);
-			if(ghostCookie !== ""){
+			if(ghostCookie !== ""){ //checks if a ghost exists at "ghostArr[i]" cookie, and if so, sets this.ghostArr[i] to that ghost
 				this.ghostArr[i] = JSON.parse(ghostCookie);
 			}
-			if(graveCookie !== ""){
+			if(graveCookie !== ""){//checks if a grave exists at "graveArr[i]" cookie, and if so, sets this.graveArr[i] to that grave
 				this.graveArr[i] = JSON.parse(graveCookie);
 			}
 		}
@@ -145,8 +146,7 @@ class Graveyard {
 		this.balance = document.getElementById("cashBalance");
 
 		let balanceCookie = getCookie("balance");
-		console.log("Balance Cookie: "+balanceCookie)
-		if(balanceCookie !== ""){
+		if(balanceCookie !== ""){ //checks if there is a value at "balance" cookie, and if so, updates this.balance.innerHTML to equal that value
 			this.balance.innerHTML = balanceCookie;
 		}
 		
@@ -194,13 +194,13 @@ class Graveyard {
 		
 			let ghost = new Ghost(index);
 			this.ghostArr[i] = ghost;
-			setCookie("ghostArr" + i, JSON.stringify(this.ghostArr[i]));
+			setCookie("ghostArr" + i, JSON.stringify(this.ghostArr[i])); //stores new ghost in a corresponding cookie
 			
 			this.generateInfoModal(i);
 			
 			let headstone = new Headstone(index, i);
 			this.graveArr[i] = headstone;
-			setCookie("graveArr" + i, JSON.stringify(this.graveArr[i]));
+			setCookie("graveArr" + i, JSON.stringify(this.graveArr[i])); //stores new grave in a corresponding cookie
 			openModal("resultModalNew");
 		}
 		
@@ -222,7 +222,7 @@ class Graveyard {
 							this.graveArr[i].spriteData.position = this.positionSprite(1, 2);
 							break;
 				}
-				setCookie("graveArr" + i, JSON.stringify(this.graveArr[i]));					
+				setCookie("graveArr" + i, JSON.stringify(this.graveArr[i])); //updates "graveArr[i]" cookie					
 				return true;
 			} 
 			
@@ -335,7 +335,7 @@ class Graveyard {
 			
 			if( gx > hx1 && gx < hx2 && gy > hy1 && gy < hy2){
 				this.balance.innerHTML = parseInt(this.balance.innerHTML) + this.graveArr[i].level;
-				setCookie("balance", this.balance.innerHTML);
+				setCookie("balance", this.balance.innerHTML); //updates "balance" cookie with new balance
 			}
 		
 		}
@@ -432,7 +432,7 @@ class Headstone{
 	clickAction(){
 		
 		this.balance.innerHTML = parseInt(this.balance.innerHTML) + this.level;
-		setCookie("balance", this.balance.innerHTML);
+		setCookie("balance", this.balance.innerHTML); //updates "balance" cookie with new balance
 		
 	}
 	
