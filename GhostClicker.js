@@ -144,6 +144,7 @@ class Graveyard {
 				let headstone = new Headstone(parseGraveCookie.index, parseGraveCookie.count);
 				this.graveArr[i] = headstone;
 				this.graveArr[i].level = parseGraveCookie.level;
+				this.graveArr[i].spriteData.position  = parseGraveCookie.spriteData.position;
 			}
 		}
 		
