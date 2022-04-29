@@ -1,0 +1,9 @@
+To Do:
+
+- Cookie Funcitonality
+- Implement ghost movement logic via class inheritance
+- Additional ghost subclass traits
+- Add return to shop functionality to result modal (but not for the initial roll)
+- alt text
+- Ghost flavor text
+- Side panel to view headstone levels, ghost info, etc.

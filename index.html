@@ -4,24 +4,23 @@
     <title>Ghost Clicker</title>
     <link href="ghostclicker.css" rel="stylesheet" type="text/css" />
     <script src="GhostClicker.js"></script>
-    <script src="loadSpriteSheet.js"></script>
   </head>
-  <body onload="openModal('welcomeModal'); loadSpriteSheet()" >
-    <canvas id="spriteDisplay" width="800px" height="400px" style="border: 1px solid black;"></canvas>
-    <div id="GameState">
-	
-		<span id="balance" class="balance">
-			0
-		</span>
-
-		<button id="shop" class="shop" onclick="openModal('shopModal')">Shop</button>
-
+   <body onload="openModal('welcomeModal'); new Graveyard('spriteDisplay')">
+    <div class="state" id=GameState>
+		<span class="cash">$</span><span id="cashBalance" class="balance">0</span>
+		<button id=shop class="shopButton" onclick="openModal('shopModal')">Shop</button>
+		<button id=infoTab class="infoButton" onclick="openModal('infoModal')">&lt;</button>
+		
 		</br>
-
-		<div id="Graves"></div>
-
+		
+		<div id=Graveyard>
+		<canvas id="spriteDisplay" width=1450 height=650></canvas>
+		</div>
+		
+	
 		<!-- The Welcome Modal -->
-		<div id="welcomeModal" class="modal">
+		<div id=welcomeModal class="modal">
+
 			<!-- Modal content -->
 			<div class="modal-content">
 		
@@ -31,33 +30,69 @@
 				</p>
 				<span class="close" onclick="closeModal('welcomeModal')">Give me my ghost!</span>
 			</div>
+
 		</div> 
 		
 		<!-- The Roll Result Modal -->
-		<div id="resultModal" class="modal">
+		<div id=resultModalNew class="modal">
+
 			<!-- Modal content -->
 			<div class="modal-content">
 				<p></p>
-				<span class="close" onclick="closeModal('resultModal')">To the graveyard!</span>
+				<span class="close" onclick="closeModal('resultModalNew')">To the graveyard!</span>
 			</div>
 
 		</div>
-
-		<!-- The Shop Modal -->
-		<div id="shopModal" class="modal">
+		
+		<div id=resultModalDuplicate class="modal">
 
 			<!-- Modal content -->
 			<div class="modal-content">
-				<button class="closeX" onclick="closeModal('shopModal')">&times;</button>
+				<p></p>
+				<span class="close" onclick="closeModal('resultModalDuplicate')">Upgrade their grave!</span>
+			</div>
+
+		</div>
+		
+		<!-- The Shop Modal -->
+		<div id=shopModal class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+				<button class="closeX" onclick="closeModal('shopModalx')">&times;</button>
 				<p>Welcome to the Shop!</br>
 				You can spend currency here to spin for more ghosts. </br>
 				</p>
-				<span id="closeShop" class="close" onclick=null>Give me my ghost! (50p) </span>
+				<span id=closeShop class="close" onclick=null>Give me my ghost! ($50)</span>
 			</div>
 
 		</div> 
+		
+		<!-- The Info Modal -->
+		<div id=infoModal class="info-modal">
 
+			<!-- Modal content -->
+			<div class="info-modal-content">
+				<button class="closeX" onclick="closeModal('infoModal')">&times;</button>
+				<img></img><div id="infoTabHeader">ghost name</div>
+				<br>
+				<div id="infoTabText"> about section </div>
+				
+				<!-- <span id=closeShop class="close" onclick=null>Give me my ghost! ($300) </span> -->
+			</div>
 
+		</div> 
+		
+		
 	</div>
+	
+	<script type="text/javascript">
+        document.oncontextmenu = rightClick;
+  
+        function rightClick(clickEvent) {
+            clickEvent.preventDefault();
+            // return false;
+        }
+    </script>
   </body>
 </html>
