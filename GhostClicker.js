@@ -21,6 +21,13 @@ const SPRITE_COL = 8
 const SPRITE_ROW = 0;
 const moveTime = 600; // influences the speed at which a sprite changes direction
 
+function runGame(){
+	gameCookie = getCookie("ongoing");
+	if(gameCookie === ""){
+		openModal('welcomeModal');
+	}
+}
+
 // When the user clicks on the open button, open the modal
 function openModal(id){
 	// Get the modal
@@ -81,7 +88,7 @@ function closeModal(id){
 			modal.style.display = "none";
 			let yard = document.getElementById("Graveyard");
 			yard.setAttribute("roll", "1");
-			
+			setCookie("ongoing", "true");
 			
 			break;
 			
