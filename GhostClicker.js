@@ -31,6 +31,10 @@ function openModal(id){
 	if (id === "shopModal"){
 		let test = document.getElementById("closeShop");
 		let spinCookie = getCookie("spinCost");
+		if(spinCookie === ""){
+			setCookie("spinCost", SPIN_COST);
+			spinCookie = getCookie("spinCost");
+		}
 		
 		if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 			test.setAttribute('onclick',"closeModal('shopModal')");
@@ -48,10 +52,6 @@ function closeModal(id){
 	switch(id) {
 		case "shopModal":
 			let spinCookie = getCookie("spinCost");
-			if(spinCookie === ""){
-				setCookie("spinCost", SPIN_COST);
-				spinCookie = getCookie("spinCost");
-			}
 			if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 				modal.style.display = "none";
 
