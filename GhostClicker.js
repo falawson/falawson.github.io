@@ -49,7 +49,10 @@ function closeModal(id){
 	switch(id) {
 		case "shopModal":
 			let spinCookie = getCookie("spinCost");
-			console.log("checking spincookie: " + spinCookie);
+			if(spinCookie === ""){
+				setCookie("spinCost", SPIN_COST);
+				spinCookie = getCookie("spinCost");
+			}
 			if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 				modal.style.display = "none";
 
