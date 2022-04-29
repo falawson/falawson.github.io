@@ -33,7 +33,6 @@ function openModal(id){
 	// Get the modal
 	var modal = document.getElementById(id);
 	modal.style.display = "block";
-	console.log(document.cookie);
 	
 	if (id === "shopModal"){
 		let test = document.getElementById("closeShop");
@@ -140,16 +139,11 @@ class Graveyard {
 			if(ghostCookie !== ""){ //checks if a ghost exists at "ghostArr[i]" cookie, and if so, sets this.ghostArr[i] to that ghost
 				this.ghostArr[i] = JSON.parse(ghostCookie);
 			}
-			if(graveCookie !== ""){//checks if a grave exists at "graveArr[i]" cookie, and if so, sets this.graveArr[i] to that grave
-				// this.graveArr[i] = JSON.parse(graveCookie);
+			if(graveCookie !== ""){//checks if a grave exists at "graveArr[i]" cookie, and if so, makes a new headstone object at this.graveArr[i] with the same data
 				let parseGraveCookie = JSON.parse(graveCookie);
 				let headstone = new Headstone(parseGraveCookie.index, parseGraveCookie.count);
 				this.graveArr[i] = headstone;
 				this.graveArr[i].level = parseGraveCookie.level;
-				console.log(parseGraveCookie);
-
-				// let headstone = new Headstone(index, i);
-				// this.graveArr[i] = headstone;
 			}
 		}
 		
