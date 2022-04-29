@@ -11,7 +11,6 @@ const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, 
 
 
 let SPIN_COST = 50;
-setCookie("spinCost", SPIN_COST);
 
 const SQUARE_SIZE = 8; 
 const SPRITE_WIDTH = 5 * SQUARE_SIZE;
