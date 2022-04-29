@@ -22,7 +22,7 @@ const SPRITE_ROW = 0;
 const moveTime = 600; // influences the speed at which a sprite changes direction
 
 function runGame(){
-	gameCookie = getCookie("ongoing");
+	let gameCookie = getCookie("ongoing");
 	if(gameCookie === ""){
 		openModal('welcomeModal');
 	}
