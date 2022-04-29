@@ -142,7 +142,7 @@ class Graveyard {
 			}
 			if(graveCookie !== ""){//checks if a grave exists at "graveArr[i]" cookie, and if so, sets this.graveArr[i] to that grave
 				this.graveArr[i] = JSON.parse(graveCookie);
-				parseGraveCookie = JSON.parse(graveCookie);
+				let parseGraveCookie = JSON.parse(graveCookie);
 				console.log(parseGraveCookie);
 				// let headstone = new Headstone(parseGraveCookie.index, i);
 				// this.graveArr[i] = headstone;
