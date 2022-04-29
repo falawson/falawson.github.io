@@ -9,6 +9,10 @@
 const GHOST_ARR	= ["Spook Ghost", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, utterly unremarkable ghost that could ever grace your cemetery. He likes long walks on the beach and haunting under the moonlight.", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 
+setCookie("username", "");
+for(let i = 0; i < GHOST_ARR.length; i++){
+	setCookie("ghost" + i, "");
+}
 
 let SPIN_COST = 50;
 
