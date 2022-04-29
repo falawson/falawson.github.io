@@ -133,7 +133,7 @@ class Graveyard {
 		
 		this.balance = document.getElementById("cashBalance");
 
-		setCookie("balance", this.balance.innerHTML);
+		//setCookie("balance", this.balance.innerHTML);
 		let balanceCookie = getCookie("balance");
 		console.log("Balance Cookie: "+balanceCookie)
 		if(balanceCookie !== "0"){
