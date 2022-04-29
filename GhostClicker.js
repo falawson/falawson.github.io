@@ -12,6 +12,8 @@ const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, 
 setCookie("username", "");
 for(let i = 0; i < GHOST_ARR.length; i++){
 	setCookie("ghost" + i, "");
+	setCookie("graveArr" + i, "");
+	setCookie("ghostArr" + i, "");
 }
 
 let SPIN_COST = 50;
