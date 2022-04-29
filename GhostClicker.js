@@ -134,7 +134,7 @@ class Graveyard {
 		this.balance = document.getElementById("cashBalance");
 
 		let balanceCookie = getCookie("balance");
-		if(balanceCookie !== "0"){
+		if(balanceCookie !== ""){
 			// this.balance.innerHTML = balanceCookie;
 			console.log("balance cookie: "+balanceCookie);
 		}
