@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Cookie Tester</title>
-        <script src="cookieTester.js"></script>
-    </head>
-    <body onload="checkCookie()"></body>
-</html>
+  <head>
+    <title>Ghost Clicker</title>
+    <link href="ghostclicker.css" rel="stylesheet" type="text/css" />
+    <script src="GhostClicker.js"></script>
+    <script src="loadSpriteSheet.js"></script>
+  </head>
+  <body onload="openModal('welcomeModal'); loadSpriteSheet()" >
+    <canvas id="spriteDisplay" width="800px" height="400px" style="border: 1px solid black;"></canvas>
+    <div id="GameState">
+	
+		<span id="balance" class="balance">
+			0
+		</span>
 
+		<button id="shop" class="shop" onclick="openModal('shopModal')">Shop</button>
+
+		</br>
+
+		<div id="Graves"></div>
+
+		<!-- The Welcome Modal -->
+		<div id="welcomeModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+		
+				<p>Welcome to Ghost Clicker!</br>
+				Looks like you don't have any ghosts in your graveyard. </br>
+				No worries! Your first spin is on us! </br>
+				</p>
+				<span class="close" onclick="closeModal('welcomeModal')">Give me my ghost!</span>
+			</div>
+		</div> 
+		
+		<!-- The Roll Result Modal -->
+		<div id="resultModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<p></p>
+				<span class="close" onclick="closeModal('resultModal')">To the graveyard!</span>
+			</div>
+
+		</div>
+
+		<!-- The Shop Modal -->
+		<div id="shopModal" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+				<button class="closeX" onclick="closeModal('shopModal')">&times;</button>
+				<p>Welcome to the Shop!</br>
+				You can spend currency here to spin for more ghosts. </br>
+				</p>
+				<span id="closeShop" class="close" onclick=null>Give me my ghost! (50p) </span>
+			</div>
+
+		</div> 
+
+
+	</div>
+  </body>
+</html>
