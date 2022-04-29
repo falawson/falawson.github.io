@@ -9,13 +9,6 @@
 const GHOST_ARR	= ["Spook Ghost", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, utterly unremarkable ghost that could ever grace your cemetery. He likes long walks on the beach and haunting under the moonlight.", "Spirit Orbs", "Zombie Hand", "Skullothy", "Grimm", "Imp", "Twinky", "Will o' Wisp"];
 
-document.cookie = "username=" + ""  + "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-for(let i = 0; i < GHOST_ARR.length; i++){
-	document.cookie = "ghost"+ i + "=" + ""  + "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-	document.cookie = "graveArr"+ i + "=" + ""  + "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-	document.cookie = "ghostArr"+ i + "=" + ""  + "expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-}
-
 let SPIN_COST = 50;
 
 const SQUARE_SIZE = 8; 
@@ -123,6 +116,19 @@ class Graveyard {
 		
 		this.yard = document.getElementById("Graveyard");
 		this.yard.setAttribute("roll", "0"); //roll = true initially
+
+		for(let i = 0; i < GHOST_ARR.length; i++){
+			let ghostCookie = getCookie("ghostArr" + i);
+			let graveCookie = getCookie("graveArr" + i);
+			if(ghostCookie !== ""){
+				console.log("not parsed cookie: " + ghostCookie);
+				console.log("parsed cookie: " + JSON.parse(ghostCookie));
+			}
+			if(graveCookie !== ""){
+				console.log("not parsed cookie: " + graveCookie);
+				console.log("parsed cookie: " + JSON.parse(graveCookie));
+			}
+		}
 		
 		this.canvas = document.getElementById(id);
 		
