@@ -49,13 +49,13 @@ function closeModal(id){
 	switch(id) {
 		case "shopModal":
 			let spinCookie = getCookie("spinCost");
-			if (parseInt(document.getElementById("cashBalance").innerHTML) >= spinCookie){
+			if (parseInt(document.getElementById("cashBalance").innerHTML) >= parseInt(spinCookie)){
 				modal.style.display = "none";
 
 				
-				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - spinCookie;
-				spinCookie += spinCookie/2;
-				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - SPIN_COST;
+				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - parseInt(spinCookie);
+				spinCookie = parseInt(spinCookie) + spinCookie/2;
+				//document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - SPIN_COST;
 				SPIN_COST += SPIN_COST/2;
 				console.log(spinCookie);
 				console.log(SPIN_COST);
