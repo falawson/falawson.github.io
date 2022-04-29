@@ -145,6 +145,7 @@ class Graveyard {
 				let parseGraveCookie = JSON.parse(graveCookie);
 				let headstone = new Headstone(parseGraveCookie.index, parseGraveCookie.count);
 				this.graveArr[i] = headstone;
+				this.graveArr[i].level = parseGraveCookie.level;
 				console.log(parseGraveCookie);
 
 				// let headstone = new Headstone(index, i);
