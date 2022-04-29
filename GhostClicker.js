@@ -132,6 +132,11 @@ class Graveyard {
 		this.canvas = document.getElementById(id);
 		
 		this.balance = document.getElementById("cashBalance");
+
+		let balanceCookie = getCookie("balance");
+		if(balanceCookie !== "0"){
+			this.balance.innerHTML = balanceCookie;
+		}
 		
 		this.infoTabHeader = document.getElementById("infoTabHeader");
 		this.infoTabText = document.getElementById("infoTabText");
@@ -318,6 +323,7 @@ class Graveyard {
 			
 			if( gx > hx1 && gx < hx2 && gy > hy1 && gy < hy2){
 				this.balance.innerHTML = parseInt(this.balance.innerHTML) + this.graveArr[i].level;
+				setCookie("balance", this.balance.innerHTML);
 			}
 		
 		}
@@ -414,6 +420,7 @@ class Headstone{
 	clickAction(){
 		
 		this.balance.innerHTML = parseInt(this.balance.innerHTML) + this.level;
+		setCookie("balance", this.balance.innerHTML);
 		
 	}
 	
