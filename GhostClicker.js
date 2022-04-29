@@ -135,7 +135,8 @@ class Graveyard {
 
 		let balanceCookie = getCookie("balance");
 		if(balanceCookie !== "0"){
-			this.balance.innerHTML = balanceCookie;
+			// this.balance.innerHTML = balanceCookie;
+			console.log("balance cookie: "+balanceCookie);
 		}
 		
 		this.infoTabHeader = document.getElementById("infoTabHeader");
