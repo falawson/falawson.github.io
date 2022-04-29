@@ -11,6 +11,7 @@ const INFO_ARR	= ["This little guy is the most run-of-the-mill, totally normal, 
 
 
 let SPIN_COST = 50;
+setCookie("spinCost", SPIN_COST);
 
 const SQUARE_SIZE = 8; 
 const SPRITE_WIDTH = 5 * SQUARE_SIZE;
@@ -30,8 +31,9 @@ function openModal(id){
 	
 	if (id === "shopModal"){
 		let test = document.getElementById("closeShop");
-
-		if (parseInt(document.getElementById("cashBalance").innerHTML) >= SPIN_COST){
+		let spinCookie = getCookie("spinCost");
+		
+		if (parseInt(document.getElementById("cashBalance").innerHTML) >= spinCookie){
 			test.setAttribute('onclick',"closeModal('shopModal')");
 		} else{
 			test.setAttribute('onclick',null);
@@ -46,13 +48,17 @@ function closeModal(id){
 	let modal = document.getElementById(id);
 	switch(id) {
 		case "shopModal":
-			if (parseInt(document.getElementById("cashBalance").innerHTML) >= SPIN_COST){
+			let spinCookie = getCookie("spinCost");
+			if (parseInt(document.getElementById("cashBalance").innerHTML) >= spinCookie){
 				modal.style.display = "none";
+
 				
-				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - SPIN_COST;
-				SPIN_COST += SPIN_COST/2;
+				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - spinCookie;
+				spinCookie += spinCookie/2;
+				setCookie("spinCost", spinCookie);
 				
-				document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + SPIN_COST + ")";
+				
+				document.getElementById("closeShop").innerHTML = "Give me my ghost! ($" + spinCookie + ")";
 				
 				let yard = document.getElementById("Graveyard");
 				yard.setAttribute("roll", "1");
