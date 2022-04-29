@@ -55,7 +55,10 @@ function closeModal(id){
 				
 				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - spinCookie;
 				spinCookie += spinCookie/2;
+				document.getElementById("cashBalance").innerHTML = parseInt(document.getElementById("cashBalance").innerHTML) - SPIN_COST;
+				SPIN_COST += SPIN_COST/2;
 				console.log(spinCookie);
+				console.log(SPIN_COST);
 				setCookie("spinCost", spinCookie);
 				
 				
