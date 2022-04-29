@@ -281,6 +281,7 @@ class Graveyard {
         for(let i = 0; i < this.ghostArr.length; i++){ /* This loop exists only to animate multiple sprites at once */
             let currentSprite = this.ghostArr[i];
 			let currentGrave = this.graveArr[i];
+			setCookie("ghostArr" + i, JSON.stringify(this.ghostArr[i])); //Updates ghost' position data
 			
 			this.collisionTest(currentSprite.spriteData.x, currentSprite.spriteData.y);
 			
